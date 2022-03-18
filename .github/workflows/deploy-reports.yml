@@ -33,10 +33,10 @@ jobs:
         run: /app/pbi-tools/pbi-tools.core deploy . "$PROFILE" -whatIf
         env:
           PBI_CLIENT_SECRET: ${{ secrets.PBI_CLIENT_SECRET }}
-        if: {{ github.event.inputs.whatIf == 'true' }}
+        if: github.event.inputs.whatIf == 'true'
 
       - name: pbi-tools deploy
         run: /app/pbi-tools/pbi-tools.core deploy . "$PROFILE"
         env:
           PBI_CLIENT_SECRET: ${{ secrets.PBI_CLIENT_SECRET }}
-        if: {{ github.event.inputs.whatIf != 'true' }}
+        if: github.event.inputs.whatIf != 'true'
